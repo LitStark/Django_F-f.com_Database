@@ -51,7 +51,8 @@
 .main {
   text-align: center;
   color: #252b41;
-  margin-top: 100px;
+  padding: 250px;
+  background-color: #f1f1f1;
   
 }
 
@@ -187,6 +188,8 @@ input {
   color: #1877f2;
   text-decoration: none;
 }
+
+/* Alerts */
 
 /* Signup Button */
 .signup-btn {
