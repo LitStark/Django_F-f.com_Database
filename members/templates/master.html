@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} | F&F.com</title>
+    <link rel="stylesheet" href="{% static 'myglobal.css' %}">
+    
+</head>
+<body>
+    <div class="topnav">
+        <h3>F&F.com</h3>
+        <a href="/" style="margin: 7.5px;">HOME </a>
+        <!-- <p style="margin: 7.5px;"> | <a href="/testing">TESTING</a></p> -->
+        <p style="margin: 7.5px;"> | <a href="/members">MEMBERS</a></p>
+        <!-- <a id="idu"  style="margin: 0 15px" href="/admin">&#128100; ADMIN</a> -->
+        {% if request.user.is_authenticated %}
+            <p style="
+                color: white;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+                right: 0;
+                margin: 0 140px;
+                padding-top: 8px;
+            ">Hi, {{request.user.first_name}} {{request.user.last_name}} !!</p>
+            <a id="ida" style="margin: 0 15px" href="/logout">&#128100; LOGOUT</a>
+        {% else %}
+            <a id="ida" style="margin: 0 8px" href="/login">&#128100; LOGIN</a>
+            <!-- <a id="ida" style="margin: 0 8px" href="/signup">&#128100; SIGNUP</a> -->
+        {% endif %}
+    </div>
+    
+    {% block content %}
+    {% endblock %}
+
+
+    <div class="footer">
+        <p>&copy; 2021 Sangeet</p>
+    </div>
+</body>
+</html>

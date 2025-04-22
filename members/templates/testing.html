@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+
+{% block title %}
+TESTING
+{% endblock %}
+
+{% block content %}
+{% with abd=123 %}
+{% if abd == 123 %}
+    <h1>Hi, Sangeet!</h1>
+{% else %}
+    <h1>Hi, stranger!</h1>
+{% endif %}
+{% endwith %}
+
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'master.html' %}
+
+{% block title %}
+Data Table
+{% endblock %}
+
+{% block content %}
+
+<div class="mycard">
+    <h1> ALL MEMBERS NAME</h1>
+        <table border="1">
+            <tr>
+                <th>S.NO.</th>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>PHONE</th>
+                <th>CITY</th>
+                <th>STATE</th>
+                <th>ACTION</th>
+            </tr>
+            {% for i in allmembers%}
+            {% if i.user_id is request.user.id %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.first_name}} {{i.last_name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.phone}}</td>
+                <td>{{i.city}}</td>
+                <td>{{i.state}}</td>
+                <td><a href="delete/{{i.id}}" style="color: blue;">Delete</a> / <a href="edit/{{i.id}}" style="color: rgb(39, 39, 243);">Edit</a></td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+    <br>
+    <a href="{% url 'add_member' %}">Add Member</a> <br>   
+</div>
+
+{% endblock %}

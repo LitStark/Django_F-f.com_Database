@@ -1,0 +1,25 @@
+{% extends 'master.html' %}
+
+{% block title %}
+ADD MEMBER
+{% endblock %}
+
+{% block content%}
+<form action="{% url 'addrecord' %}" method="post">
+    {% csrf_token %}
+    <label for="first_name">First Name:</label><br>
+    <input type="text" name="first_name" id="first_name" required><br><br>
+    <label for="last_name">Last Name:</label><br>
+    <input type="text" name="last_name" id="last_name" required><br><br>
+    <label for="email">Email:</label><br>
+    <input type="email" name="email" id="email" required><br><br>
+    <label for="phone">Phone:</label><br>
+    <input type="text" name="phone" id="phone" required><br><br>
+    <label for="city">City:</label><br>
+    <input type="text" name="city" id="city"><br><br>
+    <label for="state">State:</label><br>
+    <input type="text" name="state" id="state"><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}

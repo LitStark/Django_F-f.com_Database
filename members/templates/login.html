@@ -1,0 +1,57 @@
+{% extends "master.html" %}
+
+{% block title %}
+LOGIN
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1
+        style="margin: 0 16.5px 0 7.5px;
+        padding: 0;
+        font-stretch: extra-condensed;
+        color: #205434;
+        font-size: 250px;
+        font-family: cursive;">
+        F&F.com </h1>
+    <div class="login-box" style="background-color: white;
+    padding: 68px 20px;
+    border-radius: 8px;
+    margin-right: 17px;
+    box-shadow: 2px 2px 5px 2px;">
+        <!-- Messages from the server -->
+        {% if messages %}
+        <ul class="messages" style="padding:0px">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="margin-bottom: 40px;
+            background-color: lightgreen;
+            text-decoration: none;
+            list-style-type: none;
+            padding: 20px;
+            font-size: 10px;">{{message}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <!-- Message from server end here -->
+        <h2>LOGIN HERE</h2>
+        <p>It's quick and easy.</p><br>
+        <form action="{% url 'handleLogin' %}" method="post">
+            {% csrf_token %}
+            <input type="email" id="login_email" name="login_email" placeholder="email" required>
+            <input type="password" id="loginpass1" name="loginpass1" placeholder="Create your password" required>
+
+            
+
+            <button type="submit" class="login-btn" style="background-color: #399a39;
+            color: white;
+            padding: 9px 25px;
+            border-radius: 6px;
+            border: 0;
+            margin-bottom: 20px;">Login</button>
+        </form>
+        <a href="{% url 'signup' %}" class="signup-link">Create a new account?</a>
+    </div>
+</div>
+
+{% endblock %}

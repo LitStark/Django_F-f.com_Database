@@ -1,0 +1,21 @@
+{% extends "master.html" %}
+
+{% block title %}
+MEMBERS
+{% endblock %}
+
+{% block content %}
+    <div class="mycard">
+        <h1>ALL MEMBERS NAME</h1>
+        <ul>
+            
+            {% for i in allmembers %}
+            {% if i.user_id == request.user.id %}
+            <li><a href="details/{{i.id}}">{{i.first_name}} {{i.last_name}}</a></li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        <br>
+        <a href="{% url 'crm' %}">&#x25A1; Data in tabular Format</a>
+    </div>
+{% endblock %}
